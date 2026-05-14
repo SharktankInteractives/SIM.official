@@ -249,8 +249,8 @@ Join our Communications server to attend tryouts, get further updates, and more!
                         <p style="color: #666; margin: 0; text-transform: uppercase;">24/7 ACTIVE COMMUNITY!</p>
                     </div>
                     <div class="stat-box" style="border-color: var(--accent-blue);">
-                        <h3 style="font-family: 'Orbitron'; margin: 0; font-size: 2rem;">GLOBAL</h3>
-                        <p style="color: #666; margin: 0; text-transform: uppercase;">Community where everyone is accepted</p>
+                        <h3 style="font-family: 'Orbitron'; margin: 0; font-size: 2rem;">1000+</h3>
+                        <p style="color: #666; margin: 0; text-transform: uppercase;">MEMBERS!</p>
                     </div>
                 </div>
             </div>
@@ -310,6 +310,138 @@ Join our Communications server to attend tryouts, get further updates, and more!
         <p style="color: #444; font-size: 0.75rem; letter-spacing: 1px;">AUTHORIZED FOR PUBLIC DISTRIBUTION // &copy; 2026 SHARKY'S MILITARY</p>
         <p style="color: #222; font-size: 0.65rem; margin-top: 10px;">This is a fan-based Roblox community site. We are not affiliated with Disney or Lucasfilm.</p>
     </footer>
+<div id="secret-zone" style="position: relative; width: 100%; height: 100px; background: transparent; overflow: visible;">
+    
+    <div id="hidden-clone" onclick="openSecretComms()">
+        <img src="https://cdn-icons-png.flaticon.com/512/2164/2164627.png" alt="Clone Helmet">
+    </div>
 
+    <div id="secret-popup">
+        <div class="popup-header">
+            <span class="glitch-text">REBEL FREQUENCY DETECTED</span>
+            <button class="close-btn" onclick="closeSecretComms()">&times;</button>
+        </div>
+        <div class="popup-body">
+            <i class="fas fa-broadcast-tower" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 10px;"></i>
+            <p>"SHHHH, the Empire is hunting me! You didn't see anything!"</p>
+            <div class="signal-bar">
+                <div class="signal-fill"></div>
+            </div>
+            <span style="font-size: 0.6rem; color: #444; font-family: 'Orbitron'; margin-top: 10px; display: block;">STATUS: EVADING INQUISITORS</span>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Positioned at the very, very bottom right corner */
+    #hidden-clone {
+        position: absolute;
+        bottom: 5px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.5s ease;
+        opacity: 0.2; /* Nearly invisible to the public */
+        filter: grayscale(100%) brightness(0.4); /* Blends into the dark footer */
+    }
+
+    #hidden-clone:hover {
+        opacity: 1;
+        filter: grayscale(0%) brightness(1) drop-shadow(0 0 5px #fff); 
+        transform: translateY(-5px) scale(1.1);
+    }
+
+    #hidden-clone img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Secret Popup Styling */
+    #secret-popup {
+        position: absolute;
+        bottom: 60px;
+        right: 15px;
+        width: 280px;
+        background: #08080a;
+        border: 1px solid var(--primary);
+        box-shadow: 0 0 40px rgba(255, 0, 51, 0.4);
+        display: none;
+        z-index: 10000;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .popup-header {
+        background: var(--primary);
+        padding: 8px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .glitch-text {
+        font-family: 'Orbitron';
+        font-size: 0.6rem;
+        font-weight: 900;
+        letter-spacing: 1.5px;
+        color: #fff;
+    }
+
+    .close-btn {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.4rem;
+        cursor: pointer;
+        line-height: 1;
+    }
+
+    .popup-body {
+        padding: 25px 20px;
+        text-align: center;
+    }
+
+    .popup-body p {
+        font-size: 0.85rem;
+        color: #ddd;
+        margin: 10px 0;
+        font-style: italic;
+        line-height: 1.5;
+    }
+
+    /* Signal Bar Animation */
+    .signal-bar {
+        width: 100%;
+        height: 1px;
+        background: #222;
+        margin-top: 15px;
+        overflow: hidden;
+    }
+
+    .signal-fill {
+        width: 30%;
+        height: 100%;
+        background: var(--primary);
+        animation: signalMove 1.5s infinite linear;
+    }
+
+    @keyframes signalMove {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(400%); }
+    }
+</style>
+
+<script>
+    function openSecretComms() {
+        document.getElementById('secret-popup').style.display = 'block';
+    }
+
+    function closeSecretComms() {
+        document.getElementById('secret-popup').style.display = 'none';
+    }
+</script>
 </body>
 </html>
