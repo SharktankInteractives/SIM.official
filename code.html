@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharky's Imperial Military | Galactic Outreach Hub</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #ff0033; /* Imperial Red */
+            --bg-dark: #050507;
+            --panel-hex: rgba(18, 18, 23, 0.9);
+            --text-main: #e0e0e0;
+            --accent-blue: #00f2ff;
+        }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- IMMERSIVE STAR DESTROYER BACKGROUND --- */
+        .viewport-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            /* Your Requested Star Destroyer Image */
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.85)), 
+                        url('https://static0.srcdn.com/wordpress/wp-content/uploads/2020/01/Star-Wars-Ships-Star-Destroyer.jpg?w=1200&h=675&fit=crop');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            filter: contrast(1.1) brightness(0.8);
+        }
+
+        /* --- PUBLIC NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 25px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid var(--primary);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .logo span { color: var(--primary); }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: 0.3s;
+            opacity: 0.7;
+        }
+
+        nav a:hover { opacity: 1; color: var(--primary); }
+
+        /* --- HERO: PUBLIC FACING --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-shadow: 0 0 30px rgba(0,0,0,1);
+        }
+
+        .hero p {
+            max-width: 800px;
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 35px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+        }
+
+        .btn-group { display: flex; gap: 20px; }
+
+        .btn {
+            padding: 20px 45px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.4s;
+            border-radius: 2px;
+            font-size: 0.85rem;
+        }
+
+        .btn-main { background: var(--primary); color: #fff; }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 25px var(--primary); }
+
+        .btn-alt { background: #5865F2; color: #fff; }
+        .btn-alt:hover { transform: translateY(-3px); box-shadow: 0 10px 25px #5865F2; }
+
+        /* --- SECTIONS --- */
+        .section { padding: 120px 10%; }
+        
+        .glass-panel {
+            background: var(--panel-hex);
+            padding: 60px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        /* ABOUT GRID */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: #bbb;
+        }
+
+        .stat-box {
+            border-left: 4px solid var(--primary);
+            padding-left: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* DIVISIONS GRID */
+        .div-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .div-card {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 45px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.4s;
+            text-align: left;
+        }
+
+        .div-card:hover {
+            border-color: var(--primary);
+            background: rgba(255, 0, 51, 0.05);
+            transform: translateY(-10px);
+        }
+
+        .div-card h3 { font-family: 'Orbitron', sans-serif; color: var(--primary); margin-bottom: 10px; font-size: 1.6rem; }
+        .div-card h4 { font-size: 0.8rem; color: #666; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+        .div-card p { font-size: 0.95rem; line-height: 1.6; color: #aaa; }
+
+        /* FOOTER */
+        footer {
+            padding: 80px 10%;
+            background: #000;
+            text-align: center;
+            border-top: 1px solid var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="viewport-bg"></div>
+
+    <header>
+        <div class="logo">SHARKY'S <span>IMPERIAL MILITARY</span></div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">Our Mission</a>
+            <a href="#intel">Intel</a>
+            <a href="#divisions">Divisions</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1 class="animate__animated animate__fadeInDown">LONG LIVE THE<br>EMPIRE!</h1>
+        <p class="animate__animated animate__fadeInUp">
+            Enforcing stability through superior firepower and unwavering discipline. Sharky's Imperial Military is the premier Star Wars combat simulation on the Roblox platform.
+        </p>
+        <div class="btn-group animate__animated animate__fadeInUp animate__delay-1s">
+            <a href="https://www.roblox.com/communities/561225773" class="btn btn-main">View Group</a>
+            <a href="https://discord.gg/PHTk6WPvzK" class="btn btn-alt">Public Discord</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="glass-panel animate__animated animate__fadeIn">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2 class="section-title">THE IMPERIAL WAY</h2>
+                    <p>
+                        Sharky's Imperial Military (SIM) is an elite Roblox Star Wars community that bridges the gap between competitive gaming and immersive storytelling. We are a public-facing organization that values discipline, tactical excellence, and the professional growth of every member.
+                    </p>
+                    <p>
+                        From our large-scale border operations to our intricate political roleplay, we offer an environment where every citizen can find their purpose and every soldier can find their glory.
+                    </p>
+                </div>
+                <div>
+                    <div class="stat-box">
+                        <h3 style="font-family: 'Orbitron'; margin: 0; font-size: 2rem;">ACTIVE</h3>
+                        <p style="color: #666; margin: 0; text-transform: uppercase;">24/7 Operational Status</p>
+                    </div>
+                    <div class="stat-box" style="border-color: var(--accent-blue);">
+                        <h3 style="font-family: 'Orbitron'; margin: 0; font-size: 2rem;">GLOBAL</h3>
+                        <p style="color: #666; margin: 0; text-transform: uppercase;">A Community Without Borders</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="intel" class="section" style="background: rgba(0,0,0,0.4);">
+        <h2 class="section-title" style="text-align: center;">TACTICAL UPDATES</h2>
+        <div style="margin-top: 50px;">
+            <div style="padding: 25px; background: rgba(255,255,255,0.03); margin-bottom: 15px; border-left: 4px solid var(--accent-blue);">
+                <strong style="color: var(--accent-blue);">[PUBLIC RELEASE]</strong> // New Phase IV Armor kits have been issued to frontline units.
+            </div>
+            <div style="padding: 25px; background: rgba(255,255,255,0.03); margin-bottom: 15px; border-left: 4px solid var(--primary);">
+                <strong style="color: var(--primary);">[ALERT]</strong> // Imperial High Command has authorized a double-merit weekend starting Friday.
+            </div>
+        </div>
+    </section>
+
+    <section id="divisions" class="section">
+        <h2 class="section-title" style="text-align: center;">OUR FORCES</h2>
+        <div class="div-grid">
+            <div class="div-card">
+                <h3>IFT</h3>
+                <h4>Imperial Flametroopers</h4>
+                <p>Ensuring specialized fire support and hazardous terrain neutralization. The IFT is the Empire's primary scorched-earth deterrent.</p>
+            </div>
+            <div class="div-card">
+                <h3>IST</h3>
+                <h4>Imperial Shock Troopers</h4>
+                <p>The elite guard of high-value infrastructure and citizen safety. They are the visible shield of the Imperial capital.</p>
+            </div>
+            <div class="div-card">
+                <h3>ERG</h3>
+                <h4>Emperor's Royal Guard</h4>
+                <p>The peak of martial prowess. Chosen for their unwavering loyalty and lethal precision, guarding the highest levels of the Empire.</p>
+            </div>
+            <div class="div-card">
+                <h3>ICSU</h3>
+                <h4>Imperial Commando Special Unit</h4>
+                <p>Executing high-stakes operations that require surgical precision. The ICSU operates where standard infantry cannot reach.</p>
+            </div>
+            <div class="div-card">
+                <h3>VF</h3>
+                <h4>Vader's Fist</h4>
+                <p>The legendary 501st Legion. Lead directly by the highest command to spearhead the Empire's most vital conquests.</p>
+            </div>
+            <div class="div-card">
+                <h3>ISB</h3>
+                <h4>Imperial Security Bureau</h4>
+                <p>Intelligence and Law Enforcement. Dedicated to internal safety and the root-cause analysis of galactic instability.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo" style="font-size: 1.2rem; margin-bottom: 20px;">SHARKY'S <span>IMPERIAL</span></div>
+        <p style="color: #444; font-size: 0.75rem; letter-spacing: 1px;">AUTHORIZED FOR PUBLIC DISTRIBUTION // &copy; 2026 SHARKY'S MILITARY</p>
+        <p style="color: #222; font-size: 0.65rem; margin-top: 10px;">This is a fan-based Roblox community site. We are not affiliated with Disney or Lucasfilm.</p>
+    </footer>
+
+</body>
+</html>
