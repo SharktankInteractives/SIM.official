@@ -313,80 +313,85 @@ Join our Communications server to attend tryouts, get further updates, and more!
 <div id="secret-zone" style="position: relative; width: 100%; height: 100px; background: transparent; overflow: visible;">
     
     <div id="hidden-clone" onclick="openSecretComms()">
-        <img src="https://www.clipartmax.com/middle/m2i8i8m2K9G6Z5b1_stormtrooper-clipart-clone-trooper-phase-ii-clone-trooper-helmet/" alt="Clone Helmet">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnrxTCZ3LWt1U8NE_Fct5f99w_qWA6VJtJiw&s" alt="Hidden Clone">
     </div>
 
     <div id="secret-popup">
         <div class="popup-header">
-            <span class="glitch-text">REBEL FREQUENCY DETECTED</span>
+            <span class="glitch-text">ENCRYPTED COMMS ESTABLISHED</span>
             <button class="close-btn" onclick="closeSecretComms()">&times;</button>
         </div>
         <div class="popup-body">
-            <i class="fas fa-broadcast-tower" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 10px;"></i>
+            <i class="fas fa-user-ninja" style="color: #ff0033; font-size: 1.5rem; margin-bottom: 10px;"></i>
             <p>"SHHHH, the Empire is hunting me! You didn't see anything!"</p>
             <div class="signal-bar">
                 <div class="signal-fill"></div>
             </div>
-            <span style="font-size: 0.6rem; color: #444; font-family: 'Orbitron'; margin-top: 10px; display: block;">STATUS: EVADING INQUISITORS</span>
+            <span style="font-size: 0.6rem; color: #444; font-family: 'Orbitron'; margin-top: 10px; display: block;">ID: CC-2224 // SIGNAL STRENGTH: WEAK</span>
         </div>
     </div>
 </div>
 
 <style>
-    /* Positioned at the very, very bottom right corner */
+    /* Fixed at the absolute bottom right */
     #hidden-clone {
         position: absolute;
-        bottom: 5px;
+        bottom: 10px;
         right: 15px;
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 0.5s ease;
-        opacity: 0.2; /* Nearly invisible to the public */
-        filter: grayscale(100%) brightness(0.4); /* Blends into the dark footer */
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        
+        /* Adjusted Visibility */
+        opacity: 0.4; 
+        filter: grayscale(80%) brightness(0.6); 
     }
 
     #hidden-clone:hover {
         opacity: 1;
-        filter: grayscale(0%) brightness(1) drop-shadow(0 0 5px #fff); 
-        transform: translateY(-5px) scale(1.1);
+        filter: grayscale(0%) brightness(1) drop-shadow(0 0 10px rgba(255, 0, 51, 0.8));
+        transform: translateY(-8px) rotate(-5deg) scale(1.1);
     }
 
     #hidden-clone img {
         width: 100%;
         height: auto;
+        border-radius: 5px;
     }
 
     /* Secret Popup Styling */
     #secret-popup {
         position: absolute;
-        bottom: 60px;
+        bottom: 70px;
         right: 15px;
         width: 280px;
-        background: #08080a;
-        border: 1px solid var(--primary);
-        box-shadow: 0 0 40px rgba(255, 0, 51, 0.4);
+        background: #0a0a0c;
+        border: 1px solid #ff0033;
+        box-shadow: 0 0 50px rgba(255, 0, 51, 0.3);
         display: none;
         z-index: 10000;
         font-family: 'Montserrat', sans-serif;
+        border-radius: 4px;
     }
 
     .popup-header {
-        background: var(--primary);
-        padding: 8px 15px;
+        background: #ff0033;
+        padding: 10px 15px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        border-radius: 3px 3px 0 0;
     }
 
     .glitch-text {
         font-family: 'Orbitron';
         font-size: 0.6rem;
         font-weight: 900;
-        letter-spacing: 1.5px;
+        letter-spacing: 1px;
         color: #fff;
     }
 
@@ -394,43 +399,49 @@ Join our Communications server to attend tryouts, get further updates, and more!
         background: none;
         border: none;
         color: #fff;
-        font-size: 1.4rem;
+        font-size: 1.5rem;
         cursor: pointer;
         line-height: 1;
+        transition: 0.2s;
+    }
+
+    .close-btn:hover {
+        transform: scale(1.2);
+        color: #000;
     }
 
     .popup-body {
-        padding: 25px 20px;
+        padding: 30px 20px;
         text-align: center;
     }
 
     .popup-body p {
-        font-size: 0.85rem;
-        color: #ddd;
+        font-size: 0.9rem;
+        color: #fff;
         margin: 10px 0;
         font-style: italic;
         line-height: 1.5;
     }
 
-    /* Signal Bar Animation */
+    /* Signal Animation */
     .signal-bar {
         width: 100%;
-        height: 1px;
-        background: #222;
+        height: 2px;
+        background: #1a1a1a;
         margin-top: 15px;
         overflow: hidden;
     }
 
     .signal-fill {
-        width: 30%;
+        width: 20%;
         height: 100%;
-        background: var(--primary);
-        animation: signalMove 1.5s infinite linear;
+        background: #ff0033;
+        animation: signalMove 1.2s infinite ease-in-out;
     }
 
     @keyframes signalMove {
         0% { transform: translateX(-100%); }
-        100% { transform: translateX(400%); }
+        100% { transform: translateX(500%); }
     }
 </style>
 
